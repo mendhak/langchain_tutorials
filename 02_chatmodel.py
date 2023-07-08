@@ -22,8 +22,8 @@ chat = AzureChatOpenAI(
     temperature=0
 )
 
-output = chat.predict_messages([HumanMessage(content="Translate this sentence from English to French. I love programming.")])
+output = chat.predict_messages([HumanMessage(content="Translate this sentence from English to Spanish. My spoon is too big.")])
 
 print(output)
 
-print(chat.predict("Translate this sentence from English to French. I love programming."))
+print(chat.predict("Translate this sentence from English to Spanish. My spoon is too big."))
