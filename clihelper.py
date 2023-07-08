@@ -1,3 +1,5 @@
+# TODO: This keeps falling into explanations. Try a "FEW SHOTS" example?
+
 import pickle
 from dotenv import load_dotenv
 from langchain.chat_models import AzureChatOpenAI
@@ -15,25 +17,12 @@ if len(sys.argv) > 1:
     input_request = " ".join(sys.argv[1:])
 
 
-OPENAI_API_TYPE = os.getenv("OPENAI_API_TYPE")
-OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION")
-OPENAI_API_BASE = os.getenv("OPENAI_API_BASE")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DEPLOYMENT_NAME = os.getenv("DEPLOYMENT_NAME")
 
-print("Loaded OPENAI credentials")
-
 model = AzureChatOpenAI(
-    openai_api_base=OPENAI_API_BASE,
-    openai_api_version=OPENAI_API_VERSION,
     deployment_name=DEPLOYMENT_NAME,
-    openai_api_key=OPENAI_API_KEY,
-    openai_api_type=OPENAI_API_TYPE,
     temperature=0.3
 )
-
-print("Loaded Azure Model")
-
 
 template = """Assistant is a large language model trained by OpenAI.
 
@@ -58,7 +47,7 @@ if os.path.isfile('history.pickle'):
 chatgpt_chain = LLMChain(
     llm=model, 
     prompt=prompt, 
-    verbose=True, 
+    verbose=False, 
     memory=chain_memory,
 )
 
