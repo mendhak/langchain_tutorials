@@ -15,7 +15,7 @@ OPENAI_API_BASE = os.getenv("OPENAI_API_BASE")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DEPLOYMENT_NAME = os.getenv("DEPLOYMENT_NAME")
 
-
+# Get prediction from language model
 
 llm = AzureChatOpenAI(
     openai_api_base=OPENAI_API_BASE,
@@ -28,3 +28,5 @@ llm = AzureChatOpenAI(
 
 print(llm.predict("What would be a good company name for a company that makes colorful socks?"))
 
+
+# Chat model
