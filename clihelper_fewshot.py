@@ -34,14 +34,16 @@ model = AzureChatOpenAI(
 
 template = "You are a helpful assistant that outputs example Linux commands.I will describe what I want to do, and you will reply with a Linux command to accomplish that task. I want you to only reply with the Linux command inside one unique code block, and nothing else. Do not write explanations. Only output the command in a unique code block."
 system_message_prompt = SystemMessagePromptTemplate.from_template(template)
-example_human = HumanMessagePromptTemplate.from_template("List files in the current directory")
-example_ai = AIMessagePromptTemplate.from_template("```\nls\n```")
+example_human_1 = HumanMessagePromptTemplate.from_template("List files in the current directory")
+example_ai_1 = AIMessagePromptTemplate.from_template("```\nls\n```")
+example_human_2 = HumanMessagePromptTemplate.from_template("Push my git branch up")
+example_ai_2 = AIMessagePromptTemplate.from_template("```\ngit push origin <branchname>\n```")
 human_template = "{text}"
 human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
 
 chat_prompt = ChatPromptTemplate.from_messages(
-    [system_message_prompt, example_human, example_ai, human_message_prompt]
+    [system_message_prompt, example_human_1, example_ai_1, example_human_2, example_ai_2, human_message_prompt]
 )
 chain = LLMChain(llm=model, prompt=chat_prompt)
 # get a chat completion from the formatted messages
