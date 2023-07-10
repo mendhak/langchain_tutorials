@@ -47,4 +47,4 @@ chat_prompt = ChatPromptTemplate.from_messages(
 )
 chain = LLMChain(llm=model, prompt=chat_prompt)
 # get a chat completion from the formatted messages
-print(chain.run("git remove executable bit from file"))
+print(chain.run(input_request))

@@ -34,5 +34,5 @@ llm = AzureChatOpenAI(
 )
 agent_chain = initialize_agent(tools, llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
-response = agent_chain.run(input="Are https://onlyrss.org/posts/the-air-india-order.html and summarize the text, please.")
+response = agent_chain.run(input="Visit https://onlyrss.org/posts/the-air-india-order.html and summarize the text, please.")
 print(response)
